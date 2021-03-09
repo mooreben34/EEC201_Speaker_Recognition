@@ -1,2 +1,7 @@
 # EEC201_Speaker_Recognition
-Ben and Christian's Final Project For EEC 201.
+2B or not 2B, that is the approximation.
+
+## Abstract
+<Place Abstract Here>
+  
+## Introduction
