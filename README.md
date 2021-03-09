@@ -1,6 +1,6 @@
 # EEC201_Speaker_Recognition
 2B or not 2B, that is the approximation.
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fanalytics-vidhya%2Funderstanding-the-mel-spectrogram-fca2afa2ce53&psig=AOvVaw2Lbd-asbnF8qWzXv96FnCu&ust=1615358317039000&source=images&cd=vfe&ved=0CA0QjhxqFwoTCJjJ0ujMou8CFQAAAAAdAAAAABAD)
+Format: ![Alt Text](https://miro.medium.com/max/5120/1*07y_X8HAgRF9l_5_7Rj1JQ.jpeg)
 
 ## Abstract
 Place Abstract Here
