@@ -2,6 +2,7 @@
 2B or not 2B, that is the approximation.
 
 ## Abstract
-<Place Abstract Here>
+Place Abstract Here
   
 ## Introduction
+Place Intro Here
