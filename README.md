@@ -79,7 +79,8 @@ Given the defined inputs, the program performs the following:
 4.  Repeats steps 2 and 3 until either the minimum gain is achieved by splitting or the maximum number of iterations is achieved.
 
 The resulting output of this program is a codebook for the speaker.
-** Note: Our current implementation includes our own LBG algorithm, but utilizes MATLAB's built-in kmeans() function for each iteration. This will be replaced with our own implementation of Kmeans for the Final Submission**
+
+**Note: Our current implementation includes our own LBG algorithm, but utilizes MATLAB's built-in kmeans() function for each iteration. This will be replaced with our own implementation of Kmeans for the Final Submission**
 
 
 
