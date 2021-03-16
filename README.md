@@ -104,13 +104,13 @@ Main function for classification. Returns speaker identification
 Includes both training and testing (work in progress; plan to separate).
 
 ## Preliminary Results - Screenshots
-![Alt Text](<a href="https://ibb.co/KynnNsq"><img src="https://i.ibb.co/s37751w/MFCC.png" alt="MFCC" border="0"></a>)
+(<a href="https://ibb.co/KynnNsq"><img src="https://i.ibb.co/s37751w/MFCC.png" alt="MFCC" border="0"></a>)\n
 **Plots from melfb_own**
 
-![Alt Text](<a href="https://ibb.co/QYftwMx"><img src="https://i.ibb.co/Yf3wshV/Clustering-Example.png" alt="Clustering-Example" border="0"></a>)
+(<a href="https://ibb.co/QYftwMx"><img src="https://i.ibb.co/Yf3wshV/Clustering-Example.png" alt="Clustering-Example" border="0"></a>)\n
 **Example of clustering from MFCCs**
 
-![Alt Text](<a href="https://imgbb.com/"><img src="https://i.ibb.co/JctpcWT/Matching.png" alt="Matching" border="0"></a>)
+(<a href="https://imgbb.com/"><img src="https://i.ibb.co/JctpcWT/Matching.png" alt="Matching" border="0"></a>)\n
 **Output from classification for Speaker #2 **
 
 
