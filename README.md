@@ -20,8 +20,11 @@ Note: The final version of this report will go into much more detail about each 
 
 The final report will also include extensive testing for both accuracy and robustness against filters that are intended to make recongition more difficult.
 
-## Preliminary Works
-Our group has implemented the following features through MATLAB:
+## Preliminary Works - Brief Progress Description
+Our group has completed the process of feature extraction, clustering, and the ability to match test speakers with their training data to a certain degree of accuracy.
+
+## Preliminary Works - Function Descriptions
+Our group has implemented the following functions through MATLAB:
 
 ### 1.  melfb_own.m
 #### Function Definition:
@@ -64,6 +67,19 @@ min_split_gain - Minimum performance increase before algorithm termination
 C              - Codebook for specific speaker's MFCCs.
 
 ### Dependencies:
-mel
+melfb_own.m    - Used to generate MFCC inputs
+disteau        - Used to calculate the euclidian distance between MFCCs and all centroids (provided by Professor Ding)
+kmeans         - Iteratively called by the LBG algorithm to perform K-Means clustering
+
+#### Brief summary:
+Given the defined inputs, the program performs the following:
+1.  Creates a starting centroid that is positioned at the mean distance between all MFCCs
+2.  Splits the starting cluster by duplicating and adding a small offset to each duplicate
+3.  Performs K-means clustering
+4.  Repeats steps 2 and 3 until either the minimum gain is achieved by splitting or the maximum number of iterations is achieved.
+
+The resulting output of this program is a codebook for the speaker.
+** Note: Our current implementation includes our own LBG algorithm, but utilizes MATLAB's built-in kmeans() function for each iteration. This will be replaced with our own implementation of Kmeans for the Final Submission**
+
 
 
