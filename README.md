@@ -11,10 +11,10 @@ Our project implements a speaker recognition system through text-based MFCC feat
 - Generating codebooks for the training data set through the LBG algorithm
 - Matching codebooks of the test data set to the training data set in order to test correct speaker identification.
 
-Note: The final version of this report will go into much more detail about each of these listed processes, including:
+**Note: The final version of this report will go into much more detail about each of these listed processes, including:**
 - Block diagram of the entire speaker recognition system
 - Background on why MFCCs are an excellent choice for audio classification, and how they effectively seperate useful voice features from the glottal pulse
-- Explanations for all design choices (FFT Size, # Mel Bands, # MFCC coefficients)
+- Explanations for all parametric design choices (FFT Size, # Mel Bands, # MFCC coefficients, clustering offset)
 - Complete breakdown of all MATLAB functions
 - Thourough testing results, including accuracy measurements 
 
@@ -64,18 +64,24 @@ The program includes all plots on a tiled plot, and its MFCC outputs can be used
 Applys vector quantization to MFCCs using the LBG algorithm
 
 ### Inputs:
-MFCC           - MFCCs extracted from melfb_own.
-max_splits     - Maximum number of centroid doubling before termination
-max_iterations - Threshold for max interations
-min_split_gain - Minimum performance increase before algorithm termination
+| Input | Definition | 
+| --- | --- |
+| MFCC | MFCCs extracted from melfb_own. |
+| max_splits | Maximum number of centroid doubling before termination |
+| max_iterations | Threshold for max interations |
+| min_split_gain | Minimum performance increase before algorithm termination |
 
 ### Outputs:
-C              - Codebook for specific speaker's MFCCs.
+| Input | Definition | 
+| --- | --- |
+| C | Codebook for specific speaker's MFCCs |
 
 ### Dependencies:
-melfb_own.m    - Used to generate MFCC inputs
-disteau        - Used to calculate the euclidian distance between MFCCs and all centroids (provided by Professor Ding)
-kmeans         - Iteratively called by the LBG algorithm to perform K-Means clustering
+| Input | Definition | 
+| --- | --- |
+| melfb_own.m | Used to generate MFCC inputs |
+| disteau | Used to calculate the euclidian distance between MFCCs and all centroids (provided by Professor Ding) |
+| kmeans | Iteratively called by the LBG algorithm to perform K-Means clustering |
 
 #### Brief summary:
 Given the defined inputs, the program performs the following:
