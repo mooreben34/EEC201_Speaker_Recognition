@@ -5,11 +5,9 @@
 
 ## Abstract
 Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker training and testing, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates codebooks starting from a single centroid. For each speaker, this involves:
-- Performing the STFT on the chosen text (in our case, the word "zero")
-- Deriving the Mel Spectrogram by convolving the PSD of the Spectrogram with the chosen Mel Filter Bank
-- Generating the MFCC coefficients for training and testing by taking the DCT of the logarithm of the Mel Spectrogram
-- Generating codebooks for the training data set through the LBG algorithm
-- Matching codebooks of the test data set to the training data set in order to test correct speaker identification.
+- Generating MFC coefficients for all training and test speakers
+- Generating training and test codebooks through the LBG algorithm
+- Performing accuracy testing through matching training and testing codebooks
 
 **Note: The final version of this report will go into much more detail about each of these listed processes, including:**
 - Block diagram of the entire speaker recognition system
