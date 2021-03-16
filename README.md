@@ -64,15 +64,13 @@ Applys vector quantization to MFCCs using the LBG algorithm
 ### Inputs:
 | Input | Definition | 
 | --- | --- |
-| MFCC | MFCCs extracted from melfb_own. |
-| max_splits | Maximum number of centroid doubling before termination |
-| max_iterations | Threshold for max interations |
-| min_split_gain | Minimum performance increase before algorithm termination |
+| MFCC_own | MFCCs extracted from melfb_own. |
+| MFCC_MATLAB | MFCCs extracted from MATLAB |
 
 ### Outputs:
-| Input | Definition | 
+| Output | Definition | 
 | --- | --- |
-| C | Codebook for specific speaker's MFCCs |
+| clusters | Codebook for specific speaker's MFCCs |
 
 ### Dependencies:
 | Input | Definition | 
@@ -91,3 +89,19 @@ Given the defined inputs, the program performs the following:
 The resulting output of this program is a codebook for the speaker.
 
 **Note: Our current implementation includes our own LBG algorithm, but utilizes MATLAB's built-in kmeans() function for each iteration. This will be replaced with our own implementation of Kmeans for the Final Submission**
+
+### 3. TwoB_or_NotTooB.m
+### Function Definition: 
+Main function for classification. Returns speaker identification
+
+### Dependencies:
+| Input | Definition | 
+| --- | --- |
+| melfb_own.m | Used to generate MFCC inputs |
+| lbg | Used to generate codebooks |
+
+#### Brief summary:
+Includes both training and testing (work in progress; plan to separate).
+
+## Preliminary Results - Screenshots
+![Alt Text](C:\Users\moore\Desktop\Screenshots\MFCC)
