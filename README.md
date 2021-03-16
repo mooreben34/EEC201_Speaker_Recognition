@@ -32,6 +32,7 @@ Extract the MFCC coefficients needed for speaker classification
 
 #### Inputs:
 | Input | Description | 
+| --- | --- |
 | audio_file | speaker for which MFCC coefficients will be generated |
 | N |Frame Size for STFT (Typical are N=128, 256, 512) |
 | p | Number of Mel Filter Banks |
