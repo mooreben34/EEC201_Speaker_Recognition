@@ -104,4 +104,5 @@ Main function for classification. Returns speaker identification
 Includes both training and testing (work in progress; plan to separate).
 
 ## Preliminary Results - Screenshots
-![Alt Text](https://ibb.co/QYftwMx)
+![Alt Text](<a href="https://ibb.co/QYftwMx"><img src="https://i.ibb.co/Yf3wshV/Clustering-Example.png" alt="Clustering-Example" border="0"></a>)
+
