@@ -14,11 +14,11 @@ Our project implements a speaker recognition system through text-based MFCC feat
 - Background on why MFCCs are an excellent choice for audio classification, and how they effectively seperate useful voice features from the glottal pulse
 - Explanations for all parametric design choices (FFT Size, # Mel Bands, # MFCC coefficients, clustering offset)
 - Complete breakdown of all MATLAB functions
-- Thourough testing results, including accuracy measurements 
+- Thourough testing results, including accuracy metrics
 
 The final report will also include extensive testing for both accuracy and robustness against filters that are intended to make recongition more difficult.
 
-## Preliminary Works - Brief Progress Description
+## Preliminary Works - Progress
 Our group has completed the process of feature extraction, clustering, and the ability to match test speakers with their training data to a certain degree of accuracy.
 
 ## Preliminary Works - Function Descriptions
