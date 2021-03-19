@@ -4,24 +4,56 @@
 ![Alt Text](https://i.pinimg.com/originals/1b/e1/b8/1be1b8df06dd6c392696589402cf26af.jpg)
 
 ## Abstract
-Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker training and testing, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates codebooks starting from a single centroid. For each speaker, this involves:
-- Generating MFC coefficients for all training and test speakers
-- Generating training and test codebooks through the LBG algorithm
-- Performing accuracy testing through matching training and testing codebooks
+Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker training and testing, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates codebooks starting from a single centroid. For each speaker, this involves: Generating MFC coefficients for all training and test speakers, generating training and test codebooks through the LBG algorithm, and performing accuracy testing through matching training and testing codebooks in multiple testing environmnets.
 
-**Note: The final version of this report will go into much more detail about each of these listed processes, including:**
-- Block diagram of the entire speaker recognition system
-- Background on why MFCCs are an excellent choice for audio classification, and how they effectively seperate useful voice features from the glottal pulse
-- Explanations for all parametric design choices (FFT Size, # Mel Bands, # MFCC coefficients, clustering offset)
-- Complete breakdown of all MATLAB functions
-- Thourough testing results, including accuracy metrics
+## The Mel Scale
+Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
-The final report will also include extensive testing for both accuracy and robustness against filters that are intended to make recongition more difficult.
+![Alt Text](https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg)
 
-## Preliminary Works - Progress
-Our group has completed the process of feature extraction, clustering, and the ability to match test speakers with their training data to a certain degree of accuracy.
+Although not operating on the same scale as pitches, the Mel Scale is another was to convert the frequency scale to be linearly perceptual - that is, to make equal distances on the scale contain the same perceptual distances in terms of frequency. We define the Mel scale through the following relationship:
 
-## Preliminary Works - Function Descriptions
+![Alt Text]https://miro.medium.com/max/1440/1*64Wucrt-BeUH9ZVyOHyi2A.jpeg
+
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png)
+
+## The Mel Spectrogram
+The Mel Scale is the basis of Mel Filter Banks, which are filters that are used for extracting features from the human voice. When a speaker's voice is represented his or her individual spectrogram, this spectrogram can be made further unique to the individual by converting its amplitude to a logarithmic scale and converting its frequency to mels. We call the resulting matrix the Mel Spectrogram. 
+
+![The Mel Filter bank is used for extracting the Mel spectrogram](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.pnhttps://haythamfayek.com/assets/posts/post1/mel_filters.jpg)
+
+## Designing the Mel Filter Bank
+The Mel Filter Bank can be viewed as a sequence of overlapping triangular filters that linearly connect to their next bands, or Mel bands. Although this looks linear for lower frequencies and logarithmic for higher frequencies, the peaks of these filters are completely linearly spaced on the Mel Scale. In this way, we can emphasize and place equal weight on the main features of the spectrogram, increasing its usability for featuer extraction. Specifically, we can further manipulate this Mel Spectrogram to extract each individual's MFCC coefficients, which are the key components of the human voice neccesary for speaker identification.
+
+The Mel filter bank can be composed of any number of Mel bands. However, we typically expect the most useful number of Mel Bands to lie in the range of 40-120. In order to form the Mel Spectrogram, we simply multiply the speaker's spectrogram by the designed Mel Filter Bank.
+
+## Extracting MFCCs
+Mel Frequency Cepstral Coefficients (MFCCs) are the basis of automatic speaker recognition (ASR) based on clustering techniques. The Cepstrum, although originally developed for studying echoes in seismic signals, is the audio feature of choice for speach identification. It is also useful in fields such as music genre classification and isntrument isolation.
+
+The Cepstrum of a signal is defined by the Inverse Fourier Transform of the logarithm of the logarithm of its phase unwrapped spectrum. In order to clearly separate this domain from its Spectrum (since it is really the spectrum of a spectrum) we use the following terms in place of their signal processing equivalents:
+- Cepstrum now defines spectrum
+- Quefrency now describes frequency
+- Liftering describes Filtering
+- Harmonics describe Rhamonics
+
+## Why Use MFCCs?
+MFFCs accurately represent the formant's, or primary voiced timbres, of a speaker's voice. Speech can be modelled as the convolution of the speaker's vocal tract frequency response with the glottal pulse. The glottal pulse contains very little information in terms of speaker identification, so we ideally would like to completely remove the glottal pulse before attempting to form unique codebooks for each speaker during the learning phase of automatic speaker recognition.
+
+The process of MFCC feature extraction is effective at emulating this process. Taking the logarithm of the Mel Spectrogram allows for the convolution os the speaker's vocal tract and glotal pulse, (or its multiplication if frequency domain) to be written as a summation in the two pulses in teh freqeuncy domain. The resulting DFT of the logarithm of the Mel Spectrogram can represent the speaker's vocal tract frequency response accurately, which allows for extraction of the features that strongly correlate to each individual. In fact, speakers can be classified uniquely only utilizing a fraction of the length of the complete MFC coefficient set; usually only 12-13 MFCC coefficients are needed for accurate speaker identification. After this, clustering can be performed in order to form codebooks for each speaker.
+
+## Feature Matching: K-Means clustering and the LBG algorithm
+The next step after feature extraction is feature matching. Using vector quantization (VQ), we can derive the centers of data, or centroids, that the Speaker's MFCCs are closest to. In other words, by measuring the distortion, or the total distance from all matched speaker data to to the defined code words, we can come up with a "clustering" of the data defined by the positions of these centroids. 
+
+In normal K-Means clustering, we start and finish with a predefined number of centroids, that will iteratevly change position based on distortion measurements between the speaker's training set. However, in this project, we implement K-means iteratively through the LBG algorithm.
+
+In the LBG algorithm, we start with 1 centroid poisitioned at the mean of all speaker data across all MFCCs, and then split the centroid iteratively until a minimum distortion is met or the number of maximum splits has been defined.
+
+<The feature matching explanations will be expanded in the final report.>
+
+## Progress (Rough Draft)
+Our group has completed the process of feature extraction, clustering, and the ability to match test speakers with their training data to a certain degree of accuracy. The final report will also include extensive testing for both accuracy and robustness against filters that are intended to make recongition more difficult.
+
+## Function Descriptions
 Our group has implemented the following functions through MATLAB:
 
 ### 1.  melfb_own.m
@@ -115,5 +147,3 @@ Includes both training and testing (work in progress; plan to separate).
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/JctpcWT/Matching.png" alt="Matching" border="0"></a>
 
 **Output from classification for Speaker #2**
-
-
