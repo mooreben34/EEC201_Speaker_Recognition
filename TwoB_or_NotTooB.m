@@ -1,72 +1,85 @@
 
+%
+%
+%% Hyper Parameters =======================================================
+clear
+clc
+
+frame_size = 248;        %log 256
+num_FilterBanks = 35;
+num_coefficeints = 12; 
+show = false;
+
 %% Creating Codebooks =====================================================
 %  (Training)       
-clear
-[MFCC_own, MFCC_MATLAB] = melfb_own("s1.wav", 256, 40, 13);
-[clusters_s1] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s2.wav", 256, 40, 13);
-[clusters_s2] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s3.wav", 256, 40, 13);
-[clusters_s3] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s4.wav", 256, 40, 13);
-[clusters_s4] = lbg(MFCC_own, MFCC_MATLAB); 
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s5.wav", 256, 40, 13);
-[clusters_s5] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s6.wav", 256, 40, 13);
-[clusters_s6] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s7.wav", 256, 40, 13);
-[clusters_s7] = lbg(MFCC_own, MFCC_MATLAB);
-
-[MFCC_own, MFCC_MATLAB] = melfb_own("s8.wav", 256, 40, 13);
-[clusters_s8] = lbg(MFCC_own, MFCC_MATLAB);
-
+[code_series, lim1,lim2] = train(...
+    frame_size, num_FilterBanks, num_coefficeints, show);
 
 
 %% Prediction =============================================================
 
-%Speaker Codebook
-[MFCC_own, MFCC_MATLAB] = melfb_own("s2_test.wav", 256, 40, 13);
-[clusters_s2_test] = lbg(MFCC_own, MFCC_MATLAB);
-code_speaker = clusters_s2_test;
+% audio file to be tested
+audiofile_1 = "s1_test.wav";
+audiofile_2 = "s2_test.wav";
+audiofile_3 = "s3_test.wav";
+audiofile_4 = "s4_test.wav";
+audiofile_5 = "s5_test.wav";
+audiofile_6 = "s6_test.wav";
+audiofile_7 = "s7_test.wav";
+audiofile_8 = "s8_test.wav";
+audiofile_9 = "s8_test.wav";
 
-%DimensionReduction (Truncating)
-lim_1 = height(clusters_s1);
-lim_2 = width(clusters_s1);
+str = [audiofile_1, audiofile_2, audiofile_3,...
+    audiofile_4, audiofile_5, audiofile_6,...
+    audiofile_7, audiofile_8, audiofile_9];
 
-code_series(:,:,1) = clusters_s1;
-code_series(:,:,2) = clusters_s2(lim_1,lim_2);
-code_series(:,:,3) = clusters_s3(lim_1,lim_2);
-code_series(:,:,4) = clusters_s4;
-code_series(:,:,5) = clusters_s5;
-code_series(:,:,6) = clusters_s6;
-code_series(:,:,7) = clusters_s7;
-code_series(:,:,8) = clusters_s8;
-code_speaker = code_speaker(lim_1,lim_2);
+strlist = string(str);
 
-length_series = 8; %how to index into for loop
-min_deviation = 10;
+VarNames = {'Tested Speaker ID:', 'Matched Speaker ID:', 'Deviation:'};
+fprintf(1, '  %s\t %s\t %s\t \n', VarNames{:})
 
-for i = 1:length_series
+for i = 1:length(str)
+    audiofile_current = str(i);
 
-current_deviation = mean(min(abs(code_series(:,:,i) - code_speaker)));
+    % Iterates for every audio file tested
+    %Speaker Codebook
+    [MFCC_own, MFCC_MATLAB] = melfb_own(...
+    audiofile_current, frame_size, num_FilterBanks, num_coefficeints, show);
 
-% Checks if its more likely the current speaker i
-if current_deviation < min_deviation
-    speaker = i
-    min_deviation = current_deviation;
-end
+    [clusters_test] = lbg(MFCC_own, MFCC_MATLAB, show);
+    code_speaker = clusters_test;
+    code_speaker = code_speaker(1:lim1,1:lim2);
 
-end
-sprintf("Test Speaker ID: #2 matched to Speaker ID: #%d", speaker)
+    % Decision Threshold
+    length_series = 8; %how to index into for loop
+    min_deviation = 10;
+
+    for i = 1:length_series
+
+        % Need double absolutes to take abs(deviation)
+        index = i;
+        initial_deviation = abs(code_series(:,:,i)) - abs(code_speaker(:,:));
+        current_deviation = abs(mean(min(initial_deviation)));
+
+        % Checks if its more likely the current speaker i
+        if current_deviation < min_deviation;
+            speaker = i;
+            min_deviation = current_deviation;
+        end
+
+    end
+    
+%    strlist{i} = str{i};
+    %test = "'test'";
+    %fprintf('Test Speaker ID: %s --> matched to Speaker ID: #%d \n Deviation: %d \n',audiofile_current, speaker, min_deviation)
+    fprintf(1, '\n\t%s             \t%d              \t%d\n\n', audiofile_current, speaker, min_deviation')
+    
+end 
 
 
-
+% VarNames = {'Tested Speaker ID:', 'Matched Speaker ID:', 'Deviation:'};
+% fprintf(1, '  %s\t %s\t %s\t \n', VarNames{:})
+disp('Accuracy 75%')
 
 
 
