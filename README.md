@@ -146,4 +146,7 @@ Includes both training and testing (work in progress; plan to separate).
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/JctpcWT/Matching.png" alt="Matching" border="0"></a>
 
-**Output from classification for Speaker #2**
+**Current Results**
+We currently see 75% accuracy in speaker identification with the given training set. This will be improved for the final submission :)
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/fXxFQ59/Screenshot-2021-03-18-235357.png" alt="Screenshot-2021-03-18-235357" border="0"></a>
