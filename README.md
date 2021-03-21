@@ -54,7 +54,7 @@ This method is very effective in removing the initial silence that we might obse
 Further silence removal can be achieved by removing frames based on their Zero Crossing Rate, or ZCR. ZCR is defined as the rate at which a signal crosses zero or a selected amplitude threshold. In general, non-voiced signals are lower in amplitude and exhibit noise-like characteristics; in other words, the ZCR will be much higher for non-voiced signals than voiced-signals, which oscillate at a lower frequency. ZCR is effective in removing silence and unvoiced signals within the speech itself.
 
 <p align="center">
-  <img src= "https://user-images.githubusercontent.com/55825582/111895061-35de6380-89cd-11eb-8699-5508dc3ad05d.png">
+  <img width="400" height="200" scr= "https://user-images.githubusercontent.com/55825582/111895061-35de6380-89cd-11eb-8699-5508dc3ad05d.png">
 </p>
 <p align="center">
   Our methods were effective in removing silence both before the main speech signal and removing unvoiced components of the signal itself.
@@ -65,7 +65,10 @@ Further silence removal can be achieved by removing frames based on their Zero C
 ### The Mel Scale
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
-![Alt Text](https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg)
+<p align="center">
+  <img src= "https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg">
+</p>
+
 
 Although not operating on the same scale as pitches, the Mel Scale is another was to convert the frequency scale to be linearly perceptual - that is, to make equal distances on the scale contain the same perceptual distances in terms of frequency. We define the Mel scale through the following relationship:
 
