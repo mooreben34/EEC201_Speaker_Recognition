@@ -78,7 +78,9 @@ Although not operating on the same scale as pitches, the Mel Scale is another wa
 ### The Mel Spectrogram
 The Mel Scale is the basis of Mel Filter Banks, which are filters that are used for extracting features from the human voice. When a speaker's voice is represented his or her individual spectrogram, this spectrogram can be made further unique to the individual by converting its amplitude to a logarithmic scale and converting its frequency to mels. We call the resulting matrix the Mel Spectrogram. 
 
-![The Mel Filter bank is used for extracting the Mel spectrogram](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.pnhttps://haythamfayek.com/assets/posts/post1/mel_filters.jpg)
+<p align="center">
+  <img width = "500" height = "200" src= "https://user-images.githubusercontent.com/55825582/111896462-ffa5e180-89d6-11eb-8d0f-e0021d45b715.png">
+</p>
 
 ### Designing the Mel Filter Bank
 The Mel Filter Bank can be viewed as a sequence of overlapping triangular filters that linearly connect to their next bands, or Mel bands. Although this looks linear for lower frequencies and logarithmic for higher frequencies, the peaks of these filters are completely linearly spaced on the Mel Scale. In this way, we can emphasize and place equal weight on the main features of the spectrogram, increasing its usability for featuer extraction. Specifically, we can further manipulate this Mel Spectrogram to extract each individual's MFCC coefficients, which are the key components of the human voice neccesary for speaker identification.
