@@ -61,15 +61,19 @@ Further silence removal can be achieved by removing frames based on their Zero C
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
 <p align="center">
-  <img width = "300" height = "300" src= "https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg">
+  <img width = "300" height = "500" src= "https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg">
 </p>
 
 
 Although not operating on the same scale as pitches, the Mel Scale is another was to convert the frequency scale to be linearly perceptual - that is, to make equal distances on the scale contain the same perceptual distances in terms of frequency. We define the Mel scale through the following relationship:
 
-![Alt Text](https://miro.medium.com/max/1440/1*64Wucrt-BeUH9ZVyOHyi2A.jpeg)
+<p align="center">
+  <img width = "300" height = "400" src= "https://miro.medium.com/max/1440/1*64Wucrt-BeUH9ZVyOHyi2A.jpeg">
+</p>
 
-![Alt Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png)
+<p align="center">
+  <img width = "300" height = "400" src= "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png">
+</p>
 
 ### The Mel Spectrogram
 The Mel Scale is the basis of Mel Filter Banks, which are filters that are used for extracting features from the human voice. When a speaker's voice is represented his or her individual spectrogram, this spectrogram can be made further unique to the individual by converting its amplitude to a logarithmic scale and converting its frequency to mels. We call the resulting matrix the Mel Spectrogram. 
