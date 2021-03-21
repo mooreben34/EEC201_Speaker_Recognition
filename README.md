@@ -174,6 +174,37 @@ Rejection of false positives: 100%
 
 **Test #4: Performance Against Notch Filters**
 
+## Project Tasks
+
+### Test 1:
+We were able to distinguish voices based on differing speaking, rates and pitches, but it was difficult to distinguish speakers that spoke with the same cadance or general pitch.
+| Team Member | Recognition Rate | 
+| --- | --- |
+| Ben | 3/8 |
+| Christian | 4/8 |
+
+### Test 2:
+**Sampling rate = 12,500 Hz**. Ms of speech per 256 sample block: 256/12500 * 1000 = **20.48 ms**
+
+### Tests 3 and 4: All steps visualized for MFCCs:
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111895582-e0a45100-89d0-11eb-9f4f-4985e027e3bd.png">
+</p>
+<p align="center">
+  Generated MFCCs for an individual Speaker.
+</p>
+
+### Test 5 and 6: Demonstration of MFCCs forming clusters and centroids forming:
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111895609-18ab9400-89d1-11eb-86da-7a45a5254ccd.png">
+</p>
+<p align="center">
+  Strong clustering can be seen from the dataset.
+</p>
+
+### Test 7, 8, and 9: Results
+(See Results Section)
+
 ## Function Descriptions
 Our group has implemented the following functions through MATLAB:
 
