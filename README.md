@@ -8,8 +8,8 @@
 ## Abstract
 Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker classification, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates clusters starting from a single centroid. For each speaker, this involves the following process: 
 
--Preprocessing the data in order to better extract the formants, or key features, of the speaker's voiced signal.
--Generating MFC coefficients for all training and test speaker
+1.Preprocessing the data in order to better extract the formants, or key features, of the speaker's voiced signal. 
+2.Generating MFC coefficients for all training and test speaker
 -generating training and test codebooks through the LBG algorithm
 -performing accuracy testing through matching training and testing codebooks in multiple testing environmnets.
 
