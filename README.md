@@ -13,7 +13,7 @@ Our project implements a speaker recognition system through text-based MFCC feat
 -generating training and test codebooks through the LBG algorithm
 -performing accuracy testing through matching training and testing codebooks in multiple testing environmnets.
 
-## Preprocessing
+## Background
 Our overall objective is to build a system that can identify a speaker’s voice given training information about that speaker. Our system is text-based - that is, speakers are trained through specific codewords, or short training phrases. This process is complicated by the fact that our speech signals contain extraneous information outside of the formant's of each speaker's voice, which can interfere with the process of training and classification.
 
 In order to understand what hindering information to remove from our signal (preprocessing), we must first understand the composition of the human voice from a signal processing standpoint.
@@ -25,6 +25,9 @@ In order to understand what hindering information to remove from our signal (pre
 </p>
 
 The formant's of a speaker's voice are most affected by the frequency response of each speaker’s vocal tract. The other components involved in speech are difficult to identify, and can obscure the information obtained in the vocal tract We can simplify this process through viewing speech through two components: a glottal pulse and a voiced signal.
+
+In fact, the voice can be modelled as a convolution of the glottal pulse and the voiced signal that each speaker produces. Because convolution in time domain is equivalent to multiplication in frequency domain, we can use a logarithm can separate these two components, which will be used to later extract features. However, since this is not a perfect model we still want to remove as much of the non-voiced signal as possible before separating the voiced and glottal signals through preprocessing.
+![image](https://user-images.githubusercontent.com/55825582/111893312-1b9d8900-89bf-11eb-8596-8fb32ba083ac.png)
 
 ## The Mel Scale
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
