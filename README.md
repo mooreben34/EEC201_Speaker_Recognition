@@ -20,9 +20,8 @@ In order to understand what hindering information to remove from our signal (pre
 
 ### The Human Voice
 
-<p align="right">
-  <img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png"{: style="float: right"}>
-</p>
+
+<img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png"{: style="float: right"}>
 
 The formant's of a speaker's voice are most affected by the frequency response of each speaker’s vocal tract. The other components involved in speech are difficult to identify, and can obscure the information obtained in the vocal tract We can simplify this process through viewing speech through two components: a glottal pulse and a voiced signal.
 
