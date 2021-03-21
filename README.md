@@ -21,18 +21,16 @@ In order to understand what hindering information to remove from our signal (pre
 ### The Human Voice
 
 <p align="center">
-<img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png">
+  <img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png">
+  The shown labels identify all components that contribute to the production of speech.
 </p>
 
 The formant's of a speaker's voice are most affected by the frequency response of each speaker’s vocal tract. The other components involved in speech are difficult to identify, and can obscure the information obtained in the vocal tract We can simplify this process through viewing speech through two components: a glottal pulse and a voiced signal.
 
 In fact, the voice can be modelled as a convolution of the glottal pulse and the voiced signal that each speaker produces. Because convolution in time domain is equivalent to multiplication in frequency domain, we can use a logarithm can separate these two components, which will be used to later extract features. However, since this is not a perfect model we still want to remove as much of the non-voiced signal as possible before separating the voiced and glottal signals through preprocessing.
-<p align="center">
-  ![Image](https://user-images.githubusercontent.com/55825582/111893366-7a630280-89bf-11eb-86c8-91344c962e0b.png)
-</p>
 
 <p align="center">
-  <img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png">
+  ![Image](https://user-images.githubusercontent.com/55825582/111893366-7a630280-89bf-11eb-86c8-91344c962e0b.png)
   Breakdown of the voice convolution model.
 </p>
 
