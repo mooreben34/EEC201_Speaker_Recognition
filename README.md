@@ -25,7 +25,7 @@ In order to understand what hindering information to remove from our signal (pre
 
 
 <p align="center">
-![image](https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png)
+  <![image](https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png)>
 </p>
   
 ## The Mel Scale
