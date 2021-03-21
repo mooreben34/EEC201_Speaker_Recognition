@@ -154,9 +154,41 @@ Overall Accuracy of this test: 87.5% (7/8)
 Overall Accuracy of this Test: 86% (12/14)
 Rejection of false positives: 100%
 
-**Test #3: Performance Against Additive Noise**
+**Test #3: Performance Against Additive Noise, 37 dB**
+| Test ID | Matched Speaker ID | Deviation |
+| --- | --- | --- |
+| s1_test | s1 | .256 |
+| s2_test | s2 | .158 |
+| s3_test | s3 | .181 |
+| s4_test | s4 | .145 |
+| s5_test | s1 | .213 |
+| s6_test | s6 | .153 |
+| s7_test | s7 | .221 |
+| s8_test | s1 | .204 |
+| s9_test | 0 | .638 |
+| s10_test | 0 | .692 |
+| s11_test | 0 | .751 |
+| s12_test | 12 | .293 |
+| s13_test | 4 | .170 |
+| s14_test | 14 | .133 |
 
-**Test #4: Performance Against Notch Filters**
+**Test #4: Performance Against Notch Filters (1000 - 2000 KHz cutoffs)**
+| Test ID | Matched Speaker ID | Deviation |
+| --- | --- | --- |
+| s1_test | s1 | .164 |
+| s2_test | s2 | .210 |
+| s3_test | s3 | .157 |
+| s4_test | s4 | .869 |
+| s5_test | s1 | .20 |
+| s6_test | s6 | .225 |
+| s7_test | s7 | .289 |
+| s8_test | s1 | .205 |
+| s9_test | 0 | .750 |
+| s10_test | 0 | .850 |
+| s11_test | 0 | .935 |
+| s12_test | 12 | .158 |
+| s13_test | 4 | .159 |
+| s14_test | 14 | .211 |
 
 ## Project Tasks
 
@@ -260,26 +292,10 @@ The resulting output of this program is a codebook for the speaker.
 
 ### 3. TwoB_or_NotTooB.m
 ### Function Definition: 
-Main function for classification. Returns speaker identification
+Main function for classification. Returns speaker identification.
 
 ### Dependencies:
 | Input | Definition | 
 | --- | --- |
 | melfb_own.m | Used to generate MFCC inputs |
 | lbg | Used to generate codebooks |
-
-#### Brief summary:
-Includes both training and testing (work in progress; plan to separate).
-
-## Preliminary Results - Screenshots
-<a href="https://ibb.co/KynnNsq"><img src="https://i.ibb.co/s37751w/MFCC.png" alt="MFCC" border="0"></a>
-
-**Plots from melfb_own**
-
-<a href="https://ibb.co/QYftwMx"><img src="https://i.ibb.co/Yf3wshV/Clustering-Example.png" alt="Clustering-Example" border="0"></a>
-
-**Example of clustering from MFCCs**
-
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/JctpcWT/Matching.png" alt="Matching" border="0"></a>
-
-
