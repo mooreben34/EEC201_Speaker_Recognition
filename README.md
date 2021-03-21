@@ -6,7 +6,7 @@
 </p>
 
 ## Instructions to run project##
-To run our project, download the file **final_project_run_this.zip** file and run the **TwoBeorNOTTOOBe.m**. Make sure to add the training folder to the path.
+To run our project, download the file **final_project_run_this.zip** and run the **TwoBeorNOTTOOBe.m** script. Make sure to add the training folder to the path.
 
 ## Abstract
 Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker classification, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates clusters starting from a single centroid. For each speaker, this involves the following process: 
