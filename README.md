@@ -5,6 +5,9 @@
   <img width="800" height="300" src="https://i.pinimg.com/originals/1b/e1/b8/1be1b8df06dd6c392696589402cf26af.jpg">
 </p>
 
+## Instructions to run project##
+To run our project, ...
+
 ## Abstract
 Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker classification, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates clusters starting from a single centroid. For each speaker, this involves the following process: 
 
