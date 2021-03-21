@@ -167,7 +167,6 @@ Overall Accuracy of this test: 87.5% (7/8)
 | s12_test | 12 | .293 |
 | s13_test | 4 | .70 |
 | s14_test | 14 | .133 |
-
 Overall Accuracy of this Test: 86% (12/14)
 Rejection of false positives: 100%
 
