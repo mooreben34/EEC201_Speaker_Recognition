@@ -19,9 +19,10 @@ Our overall objective is to build a system that can identify a speaker’s voice
 In order to understand what hindering information to remove from our signal (preprocessing), we must first understand the composition of the human voice from a signal processing standpoint.
 
 ### The Human Voice
-
 <p align="center">
   <img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png">
+</p>
+<p align="center">
   The shown labels identify all components that contribute to the production of speech.
 </p>
 
