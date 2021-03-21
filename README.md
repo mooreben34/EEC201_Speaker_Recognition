@@ -139,7 +139,7 @@ The following tables show a summary of our results, including testing with our o
 
 **Test #1: Provided Test Speakers and Training Data**
 | Test ID | Matched Speaker ID | Deviation |
-| --- | --- |
+| --- | --- | --- |
 | s1_test | s1 | .257 |
 | s2_test | s2 | .158 |
 | s3_test | s3 | .181 |
@@ -152,7 +152,7 @@ Overall Accuracy of this test: 87.5% (7/8)
 
 **Test #1: Provided Test Speakers, 3 False Positive Tests, and 3 New Training Speakers**
 | Test ID | Matched Speaker ID | Deviation |
-| --- | --- |
+| --- | --- | --- |
 | s1_test | s1 | .257 |
 | s2_test | s2 | .158 |
 | s3_test | s3 | .181 |
