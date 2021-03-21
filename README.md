@@ -68,11 +68,11 @@ Human hearing does not operate on a linear frequency scale; although they are no
 Although not operating on the same scale as pitches, the Mel Scale is another was to convert the frequency scale to be linearly perceptual - that is, to make equal distances on the scale contain the same perceptual distances in terms of frequency. We define the Mel scale through the following relationship:
 
 <p align="center">
-  <img width = "400" height = "300" src= "https://miro.medium.com/max/1440/1*64Wucrt-BeUH9ZVyOHyi2A.jpeg">
+  <img width = "500" height = "200" src= "https://miro.medium.com/max/1440/1*64Wucrt-BeUH9ZVyOHyi2A.jpeg">
 </p>
 
 <p align="center">
-  <img width = "400" height = "300" src= "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png">
+  <img width = "500" height = "200" src= "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png">
 </p>
 
 ### The Mel Spectrogram
