@@ -32,6 +32,9 @@ In fact, the voice can be modelled as a convolution of the glottal pulse and the
 
 <p align="center">
   ![Image](https://user-images.githubusercontent.com/55825582/111893366-7a630280-89bf-11eb-86c8-91344c962e0b.png)
+</p>
+
+<p align="center">
   Breakdown of the voice convolution model.
 </p>
 
