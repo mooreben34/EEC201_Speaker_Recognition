@@ -31,9 +31,8 @@ The formant's of a speaker's voice are most affected by the frequency response o
 In fact, the voice can be modelled as a convolution of the glottal pulse and the voiced signal that each speaker produces. Because convolution in time domain is equivalent to multiplication in frequency domain, we can use a logarithm can separate these two components, which will be used to later extract features. However, since this is not a perfect model we still want to remove as much of the non-voiced signal as possible before separating the voiced and glottal signals through preprocessing.
 
 <p align="center">
-  ![Image](https://user-images.githubusercontent.com/55825582/111893366-7a630280-89bf-11eb-86c8-91344c962e0b.png)
+  <img width="300" height="300" src=" https://user-images.githubusercontent.com/55825582/111893366-7a630280-89bf-11eb-86c8-91344c962e0b.png">
 </p>
-
 <p align="center">
   Breakdown of the voice convolution model.
 </p>
