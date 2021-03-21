@@ -42,6 +42,33 @@ In fact, the voice can be modelled as a convolution of the glottal pulse and the
 
 ## Preprocessing
 
+### Windowing
+All of our preprocessing techniques take advantage of windowing, which divides our time-domain speech signal into parallel batches, or frames. The most popular window for windowing is the hamming window, which creates a narrower “impulse” in frequency domain for frequency selective analysis when compared to just rectangular truncation. Before windowing, we normalize the signal so that it has a maximum amplitude of 1.
+
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111893701-b9925300-89c1-11eb-8f0d-418648de626a.png">
+</p>
+<p align="center">
+  Our implementation of Windowing
+</p>
+
+### Silence Removal (Method 1: Amplitude Threshold)
+After framing our signal, we can begin to remove both silence and unvoiced components from the signal, which tend to be much lower in amplitude than the voiced components.
+We do this by analyzing the maximum value in every frame; if it is less than our threshold of .03, then we simply remove the frame through matrix indexing.
+This method is very effective in removing the initial silence that we might observe when a speaker has delayed speech.
+
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111893736-f8c0a400-89c1-11eb-9d12-fa2f00561913.png">
+</p>
+<p align="center">
+  Our implementation of Silence Removal through amplitude thresholds
+</p>
+
+### Silence Removal (Method2: ZCR)
+
+
+
+
 ## The Mel Scale
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
