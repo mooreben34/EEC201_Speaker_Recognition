@@ -15,8 +15,17 @@ Our project implements a speaker recognition system through text-based MFCC feat
 Our overall objective is to build a system that can identify a speaker’s voice given training information about that speaker. Our system is text-based - that is, speakers are trained through specific codewords, or short training phrases. This process is complicated by the fact that our speech signals contain extraneous information outside of the formant's of each speaker's voice, which can interfere with the process of training and classification.
 
 In order to understand what hindering information to remove from our signal (preprocessing), we must first understand the composition of the human voice from a signal processing standpoint.
-![image](https://user-images.githubusercontent.com/55825582/111892905-a4ff8c00-89bc-11eb-9dd2-ca6f9d503304.png)
 
+Objective: build a system that can identify a speaker’s voice given training information about that speaker.
+Our system is text-based: speakers are trained through specific codewords, or short training phrases.
+This process is complicated by the fact that our speech signals contain extraneous information, which can interfere with the process of training and classification
+In order to understand what hindering information to remove from our signal (preprocessing), we must first understand the composition of the human voice from a signal processing standpoint.
+
+### The Human Voice
+
+
+
+![image](https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png)
 
 ## The Mel Scale
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
