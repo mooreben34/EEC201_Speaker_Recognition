@@ -9,12 +9,7 @@
 To run our project, download the file **final_project_run_this.zip** and run the **TwoB_or_NotTooB.m** script. Make sure to add the training folder to the path.
 
 ## Abstract
-Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker classification, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates clusters starting from a single centroid. For each speaker, this involves the following process: 
-
-1.Preprocessing the data in order to better extract the formants, or key features, of the speaker's voiced signal. 
-2.Generating MFC coefficients for all training and test speaker
--generating training and test codebooks through the LBG algorithm
--performing accuracy testing through matching training and testing codebooks in multiple testing environmnets.
+Our project implements a speaker recognition system through text-based MFCC feature extraction. For speaker classification, we utilized the LBG algorithm, which is an extension of K-Means clustering that iteratively generates clusters starting from a single centroid.
 
 ## Background
 Our overall objective is to build a system that can identify a speaker’s voice given training information about that speaker. Our system is text-based - that is, speakers are trained through specific codewords, or short training phrases. This process is complicated by the fact that our speech signals contain extraneous information outside of the formant's of each speaker's voice, which can interfere with the process of training and classification.
