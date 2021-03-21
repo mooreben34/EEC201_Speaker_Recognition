@@ -205,6 +205,9 @@ We were able to distinguish voices based on differing speaking, rates and pitche
   Generated MFCCs for an individual Speaker.
 </p>
 
+![image](https://user-images.githubusercontent.com/55825582/111896636-506a0a00-89d8-11eb-86ac-ce18c96a2bb4.png)
+
+
 ### Test 5 and 6: Demonstration of MFCCs forming clusters and centroids forming:
 <p align="center">
   <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111895609-18ab9400-89d1-11eb-86da-7a45a5254ccd.png">
