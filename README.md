@@ -26,7 +26,7 @@ In order to understand what hindering information to remove from our signal (pre
   <img width="300" height="300" src="https://user-images.githubusercontent.com/55825582/111892986-f576e980-89bc-11eb-9ce8-ba3a821ec428.png">
 </p>
 <p align="center">
-  **The shown labels identify all components that contribute to the production of speech**
+  The shown labels identify all components that contribute to the production of speech
 </p>
 
 The formant's of a speaker's voice are most affected by the frequency response of each speaker’s vocal tract. The other components involved in speech are difficult to identify, and can obscure the information obtained in the vocal tract We can simplify this process through viewing speech through two components: a glottal pulse and a voiced signal.
@@ -37,7 +37,7 @@ In fact, the voice can be modelled as a convolution of the glottal pulse and the
   <img width="300" height="100" src= "https://user-images.githubusercontent.com/55825582/111893573-e4c87280-89c0-11eb-9499-55e3d35986fd.png">
 </p>
 <p align="center">
-  **Breakdown of the voice convolution model.**
+  Breakdown of the voice convolution model.
 </p>
 
 ## Preprocessing
