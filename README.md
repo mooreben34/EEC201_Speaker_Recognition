@@ -2,7 +2,7 @@
 ## Team TwoB or not TooB
 
 <p align="center">
-  <src="https://i.pinimg.com/originals/1b/e1/b8/1be1b8df06dd6c392696589402cf26af.jpg">
+  <img width="800" height="300" src="https://i.pinimg.com/originals/1b/e1/b8/1be1b8df06dd6c392696589402cf26af.jpg">
 </p>
 
 ## Abstract
