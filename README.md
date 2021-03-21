@@ -46,7 +46,7 @@ In fact, the voice can be modelled as a convolution of the glottal pulse and the
 All of our preprocessing techniques take advantage of windowing, which divides our time-domain speech signal into parallel batches, or frames. The most popular window for windowing is the hamming window, which creates a narrower “impulse” in frequency domain for frequency selective analysis when compared to just rectangular truncation. Before windowing, we normalize the signal so that it has a maximum amplitude of 1.
 
 <p align="center">
-  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111893701-b9925300-89c1-11eb-8f0d-418648de626a.png">
+  <img width="350" height="300" src= "https://user-images.githubusercontent.com/55825582/111893701-b9925300-89c1-11eb-8f0d-418648de626a.png">
 </p>
 <p align="center">
   Our implementation of Windowing
