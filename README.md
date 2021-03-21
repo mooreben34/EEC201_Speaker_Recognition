@@ -54,7 +54,7 @@ This method is very effective in removing the initial silence that we might obse
 Further silence removal can be achieved by removing frames based on their Zero Crossing Rate, or ZCR. ZCR is defined as the rate at which a signal crosses zero or a selected amplitude threshold. In general, non-voiced signals are lower in amplitude and exhibit noise-like characteristics; in other words, the ZCR will be much higher for non-voiced signals than voiced-signals, which oscillate at a lower frequency. ZCR is effective in removing silence and unvoiced signals within the speech itself.
 
 <p align="center">
-  <img width="400" height="200" scr= "https://user-images.githubusercontent.com/55825582/111896247-6de9a480-89d5-11eb-9f85-5fbb72a9ad16.png">
+  <img width="400" height="400" scr= "https://user-images.githubusercontent.com/55825582/111896247-6de9a480-89d5-11eb-9f85-5fbb72a9ad16.png">
 </p>
 <p align="center">
   Our methods were effective in removing silence both before the main speech signal and removing unvoiced components of the signal itself.
