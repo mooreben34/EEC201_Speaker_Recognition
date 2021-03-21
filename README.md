@@ -65,11 +65,24 @@ This method is very effective in removing the initial silence that we might obse
 </p>
 
 ### Silence Removal (Method2: ZCR)
+Further silence removal can be achieved by removing frames based on their Zero Crossing Rate, or ZCR. ZCR is defined as the rate at which a signal crosses zero or a selected amplitude threshold. In general, non-voiced signals are lower in amplitude and exhibit noise-like characteristics; in other words, the ZCR will be much higher for non-voiced signals than voiced-signals, which oscillate at a lower frequency. ZCR is effective in removing silence and unvoiced signals within the speech itself.
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111895035-11828700-89cd-11eb-9d7c-334cdaf0e689.png">
+</p>
+<p align="center">
+  Our implementation of Silence Removal through ZCR analysis
+</p>
 
+<p align="center">
+  <img width="500" height="300" src= "https://user-images.githubusercontent.com/55825582/111895061-35de6380-89cd-11eb-8699-5508dc3ad05d.png">
+</p>
+<p align="center">
+  Our methods were effective in removing silence both before the main speech signal and removing unvoiced components of the signal itself.
+</p>
 
+## Feature Extraction
 
-
-## The Mel Scale
+### The Mel Scale
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
 ![Alt Text](https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg)
@@ -80,17 +93,17 @@ Although not operating on the same scale as pitches, the Mel Scale is another wa
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.png)
 
-## The Mel Spectrogram
+### The Mel Spectrogram
 The Mel Scale is the basis of Mel Filter Banks, which are filters that are used for extracting features from the human voice. When a speaker's voice is represented his or her individual spectrogram, this spectrogram can be made further unique to the individual by converting its amplitude to a logarithmic scale and converting its frequency to mels. We call the resulting matrix the Mel Spectrogram. 
 
 ![The Mel Filter bank is used for extracting the Mel spectrogram](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mel-Hz_plot.svg/450px-Mel-Hz_plot.svg.pnhttps://haythamfayek.com/assets/posts/post1/mel_filters.jpg)
 
-## Designing the Mel Filter Bank
+### Designing the Mel Filter Bank
 The Mel Filter Bank can be viewed as a sequence of overlapping triangular filters that linearly connect to their next bands, or Mel bands. Although this looks linear for lower frequencies and logarithmic for higher frequencies, the peaks of these filters are completely linearly spaced on the Mel Scale. In this way, we can emphasize and place equal weight on the main features of the spectrogram, increasing its usability for featuer extraction. Specifically, we can further manipulate this Mel Spectrogram to extract each individual's MFCC coefficients, which are the key components of the human voice neccesary for speaker identification.
 
 The Mel filter bank can be composed of any number of Mel bands. However, we typically expect the most useful number of Mel Bands to lie in the range of 40-120. In order to form the Mel Spectrogram, we simply multiply the speaker's spectrogram by the designed Mel Filter Bank.
 
-## Extracting MFCCs
+### Extracting MFCCs
 Mel Frequency Cepstral Coefficients (MFCCs) are the basis of automatic speaker recognition (ASR) based on clustering techniques. The Cepstrum, although originally developed for studying echoes in seismic signals, is the audio feature of choice for speach identification. It is also useful in fields such as music genre classification and isntrument isolation.
 
 The Cepstrum of a signal is defined by the Inverse Fourier Transform of the logarithm of the logarithm of its phase unwrapped spectrum. In order to clearly separate this domain from its Spectrum (since it is really the spectrum of a spectrum) we use the following terms in place of their signal processing equivalents:
@@ -99,7 +112,7 @@ The Cepstrum of a signal is defined by the Inverse Fourier Transform of the loga
 - Liftering describes Filtering
 - Harmonics describe Rhamonics
 
-## Why Use MFCCs?
+### Why Use MFCCs?
 MFFCs accurately represent the formant's, or primary voiced timbres, of a speaker's voice. Speech can be modelled as the convolution of the speaker's vocal tract frequency response with the glottal pulse. The glottal pulse contains very little information in terms of speaker identification, so we ideally would like to completely remove the glottal pulse before attempting to form unique codebooks for each speaker during the learning phase of automatic speaker recognition.
 
 The process of MFCC feature extraction is effective at emulating this process. Taking the logarithm of the Mel Spectrogram allows for the convolution os the speaker's vocal tract and glotal pulse, (or its multiplication if frequency domain) to be written as a summation in the two pulses in teh freqeuncy domain. The resulting DFT of the logarithm of the Mel Spectrogram can represent the speaker's vocal tract frequency response accurately, which allows for extraction of the features that strongly correlate to each individual. In fact, speakers can be classified uniquely only utilizing a fraction of the length of the complete MFC coefficient set; usually only 12-13 MFCC coefficients are needed for accurate speaker identification. After this, clustering can be performed in order to form codebooks for each speaker.
@@ -111,10 +124,56 @@ In normal K-Means clustering, we start and finish with a predefined number of ce
 
 In the LBG algorithm, we start with 1 centroid poisitioned at the mean of all speaker data across all MFCCs, and then split the centroid iteratively until a minimum distortion is met or the number of maximum splits has been defined.
 
-<The feature matching explanations will be expanded in the final report.>
+## K-Means Clustering vs LBG Clustering
+**K-Means Clustering:** First, we choose K arbitrary clusters to represent the feature space X, which can be a random assignment or based off of a mean distance average to all points. We then classify points by assigning them to their closest centroids. Aftrer this, we correct the locations of the centroids by re-mapping the centroids at the mean Euclidian center of the data points now classified as being members of these clusters. We then compute the mean distances from the points to their new cluster centers: if the terminating threshold is met, we abort the process. If not we, repeat the process starting from the from the reclassification of points.
 
-## Progress (Rough Draft)
-Our group has completed the process of feature extraction, clustering, and the ability to match test speakers with their training data to a certain degree of accuracy. The final report will also include extensive testing for both accuracy and robustness against filters that are intended to make recongition more difficult.
+**LBG Algorithm:** The LBG algorithm is an iterative approach to K-Means clustering. We start with a single centroid that is positioned at the mean of all points in the feature set. We then split this centroid into two centroids, by shifting them by a defined distance (we used 0.01). We then ru the K-means algorithm with the two starting clusters.
+If the termination conditions of the K-means algorithm are not met, we repeat from the centroid splitting process (the second iteration will have 4 centroids).
+Termination can now also occur if the maximum desired number of splits have been reached. We chose to stop at 16 clusters since accuracy gains were not seen above this threshold.
+
+## Comparing the training codebook with the testing codewords
+After the completion of the LBG algorithm, we have a codebook that contains every speaker’s testing data. In order to now identify each speaker, we simply take the difference of the testing data’s codebook with each training set’s codebook section that corresponds to each individual speaker. The smallest difference is the resulting match! If the distance is above a certain threshold (for us 0.5), this means that the tested speaker does not exist in the training codebook.
+
+## Sumarry of Results:
+The following tables show a summary of our results, including testing with our own voices added to the testing and training set. This test also tested for 3 speakers not present in the codebook (speakers 9, 10, and 11), to make sure that we did not have false positives.
+
+**Test #1: Provided Test Speakers and Training Data**
+| Test ID | Matched Speaker ID | Deviation |
+| --- | --- |
+| s1_test | s1 | .257 |
+| s2_test | s2 | .158 |
+| s3_test | s3 | .181 |
+| s4_test | s4 | .145 |
+| s5_test | s5 | .215 |
+| s6_test | s6 | .153 |
+| s7_test | s7 | .222 |
+| s8_test | s1 | .205 |
+Overall Accuracy of this test: 87.5% (7/8)
+
+**Test #1: Provided Test Speakers, 3 False Positive Tests, and 3 New Training Speakers**
+| Test ID | Matched Speaker ID | Deviation |
+| --- | --- |
+| s1_test | s1 | .257 |
+| s2_test | s2 | .158 |
+| s3_test | s3 | .181 |
+| s4_test | s4 | .145 |
+| s5_test | s5 | .215 |
+| s6_test | s6 | .153 |
+| s7_test | s7 | .222 |
+| s8_test | s1 | .205 |
+| s9_test | 0 | .638 |
+| s10_test | 0 | .693 |
+| s11_test | 0 | .737 |
+| s12_test | 12 | .293 |
+| s13_test | 4 | .70 |
+| s14_test | 14 | .133 |
+
+Overall Accuracy of this Test: 86% (12/14)
+Rejection of false positives: 100%
+
+**Test #3: Performance Against Additive Noise**
+
+**Test #4: Performance Against Notch Filters**
 
 ## Function Descriptions
 Our group has implemented the following functions through MATLAB:
