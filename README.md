@@ -61,7 +61,7 @@ Further silence removal can be achieved by removing frames based on their Zero C
 Human hearing does not operate on a linear frequency scale; although they are not used for speaker recognition, pitches are the easiest way to visual this. The musical note A4 corresponds to a frequency of 440 Hz, A5 corresponds to 880 Hz, and A6 corresponds to 1760. This means that in order to increase a note by one octave, or 12 semitones, we must double it's frequency across the entire scale. Such a scale can be modelled logarithmiclly.
 
 <p align="center">
-  <img src= "https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg">
+  <img width = "300" height = "300" src= "https://dt7v1i9vyp3mf.cloudfront.net/styles/news_large/s3/imagelibrary/E/Ear_06-mCzyLXNvnCn26ZWLVvGj5qmO7bkUM6LO.jpg">
 </p>
 
 
