@@ -45,33 +45,13 @@ In fact, the voice can be modelled as a convolution of the glottal pulse and the
 ### Windowing
 All of our preprocessing techniques take advantage of windowing, which divides our time-domain speech signal into parallel batches, or frames. The most popular window for windowing is the hamming window, which creates a narrower “impulse” in frequency domain for frequency selective analysis when compared to just rectangular truncation. Before windowing, we normalize the signal so that it has a maximum amplitude of 1.
 
-<p align="center">
-  <img scr = "https://user-images.githubusercontent.com/55825582/111893701-b9925300-89c1-11eb-8f0d-418648de626a.png">
-</p>
-<p align="center">
-  Our implementation of Windowing
-</p>
-
 ### Silence Removal (Method 1: Amplitude Threshold)
 After framing our signal, we can begin to remove both silence and unvoiced components from the signal, which tend to be much lower in amplitude than the voiced components.
 We do this by analyzing the maximum value in every frame; if it is less than our threshold of .03, then we simply remove the frame through matrix indexing.
 This method is very effective in removing the initial silence that we might observe when a speaker has delayed speech.
 
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/55825582/111893736-f8c0a400-89c1-11eb-9d12-fa2f00561913.png">
-</p>
-<p align="center">
-  Our implementation of Silence Removal through amplitude thresholds
-</p>
-
 ### Silence Removal (Method2: ZCR)
 Further silence removal can be achieved by removing frames based on their Zero Crossing Rate, or ZCR. ZCR is defined as the rate at which a signal crosses zero or a selected amplitude threshold. In general, non-voiced signals are lower in amplitude and exhibit noise-like characteristics; in other words, the ZCR will be much higher for non-voiced signals than voiced-signals, which oscillate at a lower frequency. ZCR is effective in removing silence and unvoiced signals within the speech itself.
-<p align="center">
-  <img src= "https://user-images.githubusercontent.com/55825582/111895035-11828700-89cd-11eb-9d7c-334cdaf0e689.png">
-</p>
-<p align="center">
-  Our implementation of Silence Removal through ZCR analysis
-</p>
 
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/55825582/111895061-35de6380-89cd-11eb-8699-5508dc3ad05d.png">
